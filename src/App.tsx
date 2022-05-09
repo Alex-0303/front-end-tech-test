@@ -1,7 +1,5 @@
-function App() {
-  return (
-    <>Hello world</>
-  );
-}
+import Main from './components/Main'
 
-export default App;
+const App = () => <Main />
+
+export default App

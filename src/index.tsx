@@ -1,15 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import './reset.css';
-import './styles.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { ethers } from 'ethers'
+import App from './App'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+import { Web3ReactProvider } from '@web3-react/core'
 
-root.render(
-  <React.StrictMode>
+import './reset.css'
+import './styles.css'
+
+const getLibrary = (provider: any) => {
+  return new ethers.providers.Web3Provider(provider)
+}
+
+ReactDOM.render(
+  <Web3ReactProvider getLibrary={getLibrary}>
     <App />
-  </React.StrictMode>
-);
+  </Web3ReactProvider>,
+  document.getElementById('root'),
+)
